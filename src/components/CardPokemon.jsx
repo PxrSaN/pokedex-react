@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const CardPokemon = () => {
   return (
@@ -12,7 +12,7 @@ export const CardPokemon = () => {
         />
 
       </div>
-      
+
       <div className='card-info'>
         <span className='pokemon-id'>N° {pokemon.id}</span>
         <h3>{pokemon.name}</h3>

@@ -1,13 +1,24 @@
-import React, { useContext } from 'react'
-import { Outlet } from 'react-router-dom'
+import { useContext } from 'react';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { PokemonContext } from '../context/PokemonContext';
+import logo from '../assets/logo.png'
 
 export const Navigation = () => {
+	const { onInputChange, valueSearch, onResetForm } =
+		useContext(PokemonContext);
 
-    const {} = useContext(PokemonContext)
-    
+	const navigate = useNavigate();
 
-    return (
+	const onSearchSubmit = e => {
+		e.preventDefault();
+		navigate('/search', {
+			state: valueSearch,
+		});
+
+		onResetForm();
+	};
+
+	return (
 		<>
 			<header className='container'>
 				<Link to='/' className='logo'>
