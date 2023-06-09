@@ -182,6 +182,11 @@ header form {
 	color: #fff;
 }
 
+.card-pokemon:hover{
+    transform: scale(1.1);
+	transform-origin: center;
+}
+
 /* Types of Pokemon */
 .water {
 	background-color: var(--color-water);
@@ -259,16 +264,14 @@ header form {
 .container-filters {
 	display: flex;
 	justify-content: center;
-
 	position: fixed;
 	top: 0;
 	left: -300px;
-	width: 250px;
-
+	width: 140px;
 	color: #555;
 	background-color: #f2f2f2;
 	height: 100%;
-	padding-top: 140px;
+	padding-top: 10px;
 	transition: all 0.3s linear;
 }
 
@@ -279,7 +282,6 @@ header form {
 .filter-by-type {
 	display: flex;
 	flex-direction: column;
-
 	gap: 20px;
 }
 
@@ -450,4 +452,7 @@ Styles of Pokemon Single Page
 .btn-load-more:hover{
 	background-color: var(--color-primary-hover);
 	color: #000;
+	transform: scale(1.2);
+	transform-origin: center;
 }
+
