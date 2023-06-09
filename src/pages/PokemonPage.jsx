@@ -5,33 +5,30 @@ import { PokemonContext } from '../context/PokemonContext';
 import { primerMayuscula } from '../helper/helper';
 
 export const PokemonPage = () => {
+	const { getPokemonByID } = useContext(PokemonContext);
 
+	const [loading, setLoading] = useState(true);
+	const [pokemon, setPokemon] = useState({});
 
-  const {getPokemonByID} = useContext(PokemonContext)
-  const [loading, setLoading] = useState(true)
-  const [pokemon, setPokemon] = useState({})
-  const {id} = useParams()
+	const { id } = useParams();
 
-  const fetchPokemon = async(id) => {
-    const data = await getPokemonByID(id)
-    setPokemon(data)
-    setLoading(false)
-}
+	const fetchPokemon = async id => {
+		const data = await getPokemonByID(id);
+		setPokemon(data);
+		setLoading(false);
+	};
 
-useEffect(() => {
-  fetchPokemon(id)
-}, [])
+	useEffect(() => {
+		fetchPokemon(id);
+	}, []);
 
-  return (
-      <main className='container main-pokemon'>
-
-        {
-          loading ? (
-            <Loader/>
-          ) : (
-            <>
-            
-            <div className='header-main-pokemon'>
+	return (
+		<main className='container main-pokemon'>
+			{loading ? (
+				<Loader />
+			) : (
+				<>
+					<div className='header-main-pokemon'>
 						<span className='number-pokemon'>#{pokemon.id}</span>
 						<div className='container-img-pokemon'>
 							<img
@@ -49,7 +46,6 @@ useEffect(() => {
 									</span>
 								))}
 							</div>
-
 							<div className='info-pokemon'>
 								<div className='group-info'>
 									<p>Altura</p>
@@ -73,7 +69,6 @@ useEffect(() => {
 									{pokemon.stats[0].base_stat}
 								</span>
 							</div>
-
 							<div className='stat-group'>
 								<span>Attack</span>
 								<div className='progress-bar'></div>
@@ -81,7 +76,6 @@ useEffect(() => {
 									{pokemon.stats[1].base_stat}
 								</span>
 							</div>
-
 							<div className='stat-group'>
 								<span>Defense</span>
 								<div className='progress-bar'></div>
@@ -89,7 +83,6 @@ useEffect(() => {
 									{pokemon.stats[2].base_stat}
 								</span>
 							</div>
-
 							<div className='stat-group'>
 								<span>Special Attack</span>
 								<div className='progress-bar'></div>
@@ -97,7 +90,6 @@ useEffect(() => {
 									{pokemon.stats[3].base_stat}
 								</span>
 							</div>
-
 							<div className='stat-group'>
 								<span>Special Defense</span>
 								<div className='progress-bar'></div>
@@ -105,7 +97,6 @@ useEffect(() => {
 									{pokemon.stats[4].base_stat}
 								</span>
 							</div>
-
 							<div className='stat-group'>
 								<span>Speed</span>
 								<div className='progress-bar'></div>
@@ -114,11 +105,9 @@ useEffect(() => {
 								</span>
 							</div>
 						</div>
-					</div>  
-            </>
-          )
-        }
-
-      </main>
-  )
-}
+					</div>
+				</>
+			)}
+		</main>
+	);
+};

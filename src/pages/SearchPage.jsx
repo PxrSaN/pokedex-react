@@ -4,14 +4,25 @@ import { CardPokemon } from '../components';
 import { PokemonContext } from '../context/PokemonContext';
 
 export const SearchPage = () => {
+	const location = useLocation();
 
-  const location = useLocation()  
+	const { globalPokemons } = useContext(PokemonContext);
 
-  const  {globalPokemons} = useContext(PokemonContext)
+	const filteredPokemons = globalPokemons.filter(pokemon =>
+		pokemon.name.includes(location.state.toLowerCase())
+	);
 
-  const filteredPokemons = globalPokemons.filter(pokemon => pokemon.name.includes(location.state))
-
-  return (
-    <div>SearchPage</div>
-  )
-}
+	return (
+		<div className='container'>
+			<p className='p-search'>
+				Se encontraron <span>{filteredPokemons.length}</span>{' '}
+				resultados:
+			</p>
+			<div className='card-list-pokemon container'>
+				{filteredPokemons.map(pokemon => (
+					<CardPokemon pokemon={pokemon} key={pokemon.id} />
+				))}
+			</div>
+		</div>
+	);
+};
