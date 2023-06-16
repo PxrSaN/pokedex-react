@@ -23,7 +23,7 @@ describe('Tests', () => {
   
   test('el article tiene un color de fondo', () => { 
     expect(article).toHaveStyle({
-      backgroundColor: 'indigo'
+      backgroundColor: 'green'
    
 
    })
@@ -33,7 +33,7 @@ describe('Tests', () => {
   test('al hacer click en el boton cambia el color de fondo del article', () => { 
     fireEvent.click(button);
     expect(article).toHaveStyle({
-  backgroundColor: 'tomato'
+  backgroundColor: 'blue'
    })
 
  })

@@ -50,6 +50,7 @@ export const PokemonPage = () => {
 								<div className='group-info'>
 									<p>Altura</p>
 									<span>{pokemon.height}</span>
+									
 								</div>
 								<div className='group-info'>
 									<p>Peso</p>

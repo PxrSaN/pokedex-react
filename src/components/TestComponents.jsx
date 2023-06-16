@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const TestComponents = () => {
 
-    const [bgColor, setBgColor] = useState('indigo');
+    const [bgColor, setBgColor] = useState('green');
 
     return <div>
         <article
@@ -12,7 +12,7 @@ const TestComponents = () => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate ratione ipsa dolorum, maxime ad tempore.
         </article>
         <button
-            onClick={() => setBgColor(bgColor === 'indigo' ? 'tomato' : 'indigo')}
+            onClick={() => setBgColor(bgColor === 'green' ? 'blue' : 'green')}
         >Pulsa para modificar</button>
     </div>;
 }
